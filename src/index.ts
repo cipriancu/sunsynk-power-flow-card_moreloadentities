@@ -558,6 +558,78 @@ export class SunsynkPowerFlowCard extends LitElement {
 		const stateNonEssentialLoad3Extra = this.getEntity(
 			'entities.non_essential_load3_extra',
 		);
+		const stateNonessentialLoad4 = this.getEntity(
+			'entities.non_essential_load4',
+		);
+		const stateNonessentialLoad5 = this.getEntity(
+			'entities.non_essential_load5',
+		);
+		const stateNonessentialLoad6 = this.getEntity(
+			'entities.non_essential_load6',
+		);
+		const stateNonessentialLoad7 = this.getEntity(
+			'entities.non_essential_load7',
+		);
+		const stateNonessentialLoad8 = this.getEntity(
+			'entities.non_essential_load8',
+		);
+		const stateNonessentialLoad9 = this.getEntity(
+			'entities.non_essential_load9',
+		);
+		const stateNonessentialLoad10 = this.getEntity(
+			'entities.non_essential_load10',
+		);
+		const stateNonessentialLoad11 = this.getEntity(
+			'entities.non_essential_load11',
+		);
+		const stateNonessentialLoad12 = this.getEntity(
+			'entities.non_essential_load12',
+		);
+		const stateNonessentialLoad13 = this.getEntity(
+			'entities.non_essential_load13',
+		);
+		const stateNonessentialLoad14 = this.getEntity(
+			'entities.non_essential_load14',
+		);
+		const stateNonessentialLoad15 = this.getEntity(
+			'entities.non_essential_load15',
+		);
+		const stateNonEssentialLoad4Extra = this.getEntity(
+			'entities.non_essential_load4_extra',
+		);
+		const stateNonEssentialLoad5Extra = this.getEntity(
+			'entities.non_essential_load5_extra',
+		);
+		const stateNonEssentialLoad6Extra = this.getEntity(
+			'entities.non_essential_load6_extra',
+		);
+		const stateNonEssentialLoad7Extra = this.getEntity(
+			'entities.non_essential_load7_extra',
+		);
+		const stateNonEssentialLoad8Extra = this.getEntity(
+			'entities.non_essential_load8_extra',
+		);
+		const stateNonEssentialLoad9Extra = this.getEntity(
+			'entities.non_essential_load9_extra',
+		);
+		const stateNonEssentialLoad10Extra = this.getEntity(
+			'entities.non_essential_load10_extra',
+		);
+		const stateNonEssentialLoad11Extra = this.getEntity(
+			'entities.non_essential_load11_extra',
+		);
+		const stateNonEssentialLoad12Extra = this.getEntity(
+			'entities.non_essential_load12_extra',
+		);
+		const stateNonEssentialLoad13Extra = this.getEntity(
+			'entities.non_essential_load13_extra',
+		);
+		const stateNonEssentialLoad14Extra = this.getEntity(
+			'entities.non_essential_load14_extra',
+		);
+		const stateNonEssentialLoad15Extra = this.getEntity(
+			'entities.non_essential_load15_extra',
+		);
 		const stateEssentialLoad1 = this.getEntity('entities.essential_load1');
 		const stateEssentialLoad2 = this.getEntity('entities.essential_load2');
 		const stateEssentialLoad3 = this.getEntity('entities.essential_load3');
@@ -847,6 +919,54 @@ export class SunsynkPowerFlowCard extends LitElement {
 		const dynamicColourNonEssentialLoad1 = nonEss1On ? gridColour : 'grey';
 		const dynamicColourNonEssentialLoad2 = nonEss2On ? gridColour : 'grey';
 		const dynamicColourNonEssentialLoad3 = nonEss3On ? gridColour : 'grey';
+		const nonEss4On =
+			Math.abs(stateNonessentialLoad4.toPower(false)) >
+			this._computed.grid.offThreshold;
+		const nonEss5On =
+			Math.abs(stateNonessentialLoad5.toPower(false)) >
+			this._computed.grid.offThreshold;
+		const nonEss6On =
+			Math.abs(stateNonessentialLoad6.toPower(false)) >
+			this._computed.grid.offThreshold;
+		const nonEss7On =
+			Math.abs(stateNonessentialLoad7.toPower(false)) >
+			this._computed.grid.offThreshold;
+		const nonEss8On =
+			Math.abs(stateNonessentialLoad8.toPower(false)) >
+			this._computed.grid.offThreshold;
+		const nonEss9On =
+			Math.abs(stateNonessentialLoad9.toPower(false)) >
+			this._computed.grid.offThreshold;
+		const nonEss10On =
+			Math.abs(stateNonessentialLoad10.toPower(false)) >
+			this._computed.grid.offThreshold;
+		const nonEss11On =
+			Math.abs(stateNonessentialLoad11.toPower(false)) >
+			this._computed.grid.offThreshold;
+		const nonEss12On =
+			Math.abs(stateNonessentialLoad12.toPower(false)) >
+			this._computed.grid.offThreshold;
+		const nonEss13On =
+			Math.abs(stateNonessentialLoad13.toPower(false)) >
+			this._computed.grid.offThreshold;
+		const nonEss14On =
+			Math.abs(stateNonessentialLoad14.toPower(false)) >
+			this._computed.grid.offThreshold;
+		const nonEss15On =
+			Math.abs(stateNonessentialLoad15.toPower(false)) >
+			this._computed.grid.offThreshold;
+		const dynamicColourNonEssentialLoad4 = nonEss4On ? gridColour : 'grey';
+		const dynamicColourNonEssentialLoad5 = nonEss5On ? gridColour : 'grey';
+		const dynamicColourNonEssentialLoad6 = nonEss6On ? gridColour : 'grey';
+		const dynamicColourNonEssentialLoad7 = nonEss7On ? gridColour : 'grey';
+		const dynamicColourNonEssentialLoad8 = nonEss8On ? gridColour : 'grey';
+		const dynamicColourNonEssentialLoad9 = nonEss9On ? gridColour : 'grey';
+		const dynamicColourNonEssentialLoad10 = nonEss10On ? gridColour : 'grey';
+		const dynamicColourNonEssentialLoad11 = nonEss11On ? gridColour : 'grey';
+		const dynamicColourNonEssentialLoad12 = nonEss12On ? gridColour : 'grey';
+		const dynamicColourNonEssentialLoad13 = nonEss13On ? gridColour : 'grey';
+		const dynamicColourNonEssentialLoad14 = nonEss14On ? gridColour : 'grey';
+		const dynamicColourNonEssentialLoad15 = nonEss15On ? gridColour : 'grey';
 
 		const gridOffColour = this.colourConvert(
 			config.grid?.grid_off_colour || gridColour,
@@ -857,10 +977,8 @@ export class SunsynkPowerFlowCard extends LitElement {
 			nonessentialLoads = 0;
 		}
 
-		let pvEfficiencyMode = config.solar?.efficiency;
-		if (!validnonLoadValues.includes(pvEfficiencyMode)) {
-			pvEfficiencyMode = 0;
-		}
+		const extraNonessRows = Math.ceil(Math.max(nonessentialLoads - 3, 0) / 3);
+		const fullCardViewBoxHeight = 405 + extraNonessRows * 65;
 
 		const gridShowDailyBuy = config.grid?.show_daily_buy;
 		const gridShowDailySell = config.grid?.show_daily_sell;
@@ -940,6 +1058,42 @@ export class SunsynkPowerFlowCard extends LitElement {
 		}).state;
 		const iconNonessentialLoad3 = this.getEntity('grid.load3_icon', {
 			state: config.grid?.load3_icon?.toString() ?? '',
+		}).state;
+		const iconNonessentialLoad4 = this.getEntity('grid.load4_icon', {
+			state: config.grid?.load4_icon?.toString() ?? '',
+		}).state;
+		const iconNonessentialLoad5 = this.getEntity('grid.load5_icon', {
+			state: config.grid?.load5_icon?.toString() ?? '',
+		}).state;
+		const iconNonessentialLoad6 = this.getEntity('grid.load6_icon', {
+			state: config.grid?.load6_icon?.toString() ?? '',
+		}).state;
+		const iconNonessentialLoad7 = this.getEntity('grid.load7_icon', {
+			state: config.grid?.load7_icon?.toString() ?? '',
+		}).state;
+		const iconNonessentialLoad8 = this.getEntity('grid.load8_icon', {
+			state: config.grid?.load8_icon?.toString() ?? '',
+		}).state;
+		const iconNonessentialLoad9 = this.getEntity('grid.load9_icon', {
+			state: config.grid?.load9_icon?.toString() ?? '',
+		}).state;
+		const iconNonessentialLoad10 = this.getEntity('grid.load10_icon', {
+			state: config.grid?.load10_icon?.toString() ?? '',
+		}).state;
+		const iconNonessentialLoad11 = this.getEntity('grid.load11_icon', {
+			state: config.grid?.load11_icon?.toString() ?? '',
+		}).state;
+		const iconNonessentialLoad12 = this.getEntity('grid.load12_icon', {
+			state: config.grid?.load12_icon?.toString() ?? '',
+		}).state;
+		const iconNonessentialLoad13 = this.getEntity('grid.load13_icon', {
+			state: config.grid?.load13_icon?.toString() ?? '',
+		}).state;
+		const iconNonessentialLoad14 = this.getEntity('grid.load14_icon', {
+			state: config.grid?.load14_icon?.toString() ?? '',
+		}).state;
+		const iconNonessentialLoad15 = this.getEntity('grid.load15_icon', {
+			state: config.grid?.load15_icon?.toString() ?? '',
 		}).state;
 		const iconGridImport = this.getEntity('grid.import_icon', {
 			state: config.grid?.import_icon?.toString() ?? '',
@@ -1492,9 +1646,8 @@ export class SunsynkPowerFlowCard extends LitElement {
 				return 0; // Default case
 			};
 
-			let totalSeconds = 0;
 			if (batteryEnergy !== 0) {
-				totalSeconds = calculateTotalSeconds(
+				const totalSeconds = calculateTotalSeconds(
 					stateBatterySoc,
 					batteryShutdown,
 					batteryCapacity,
@@ -1527,9 +1680,8 @@ export class SunsynkPowerFlowCard extends LitElement {
 				batteryDuration += `${minutes} ${localize('common.min')}`;
 			}
 
-			let totalSeconds2 = 0;
 			if (battery2Energy !== 0) {
-				totalSeconds2 = calculateTotalSeconds(
+				const totalSeconds2 = calculateTotalSeconds(
 					stateBattery2Soc,
 					batteryShutdown2,
 					battery2Capacity,
@@ -2118,8 +2270,8 @@ export class SunsynkPowerFlowCard extends LitElement {
 
 		//console.log(`${normalizedPvPercentage} % normalizedPVPercentage to load, ${normalizedBatteryPercentage} % normalizedBatteryPercentage to load`);
 
-		let pvPercentage = 0;
-		let batteryPercentage = 0;
+		let pvPercentage: number;
+		let batteryPercentage: number;
 		let gridPercentage = 0;
 		if (totalPercentage > 100) {
 			pvPercentage = Utils.toNum(normalizedPvPercentage, 0);
@@ -2172,8 +2324,8 @@ export class SunsynkPowerFlowCard extends LitElement {
 				? 0
 				: (gridPercentageRawBat / totalPercentageBat) * 100;
 
-		let pvPercentageBat = 0;
-		let gridPercentageBat = 0;
+		let pvPercentageBat: number;
+		let gridPercentageBat: number;
 		if (totalPercentageBat > 100) {
 			pvPercentageBat = Utils.toNum(normalizedPvPercentage_bat, 0);
 			gridPercentageBat = Utils.toNum(normalizedGridPercentage, 0);
@@ -2596,6 +2748,18 @@ export class SunsynkPowerFlowCard extends LitElement {
 			stateNonEssentialLoad1Extra,
 			stateNonEssentialLoad2Extra,
 			stateNonEssentialLoad3Extra,
+			stateNonEssentialLoad4Extra,
+			stateNonEssentialLoad5Extra,
+			stateNonEssentialLoad6Extra,
+			stateNonEssentialLoad7Extra,
+			stateNonEssentialLoad8Extra,
+			stateNonEssentialLoad9Extra,
+			stateNonEssentialLoad10Extra,
+			stateNonEssentialLoad11Extra,
+			stateNonEssentialLoad12Extra,
+			stateNonEssentialLoad13Extra,
+			stateNonEssentialLoad14Extra,
+			stateNonEssentialLoad15Extra,
 			loadFrequency,
 			gridShowDailyBuy,
 			gridShowDailySell,
@@ -2715,6 +2879,18 @@ export class SunsynkPowerFlowCard extends LitElement {
 			iconNonessentialLoad1,
 			iconNonessentialLoad2,
 			iconNonessentialLoad3,
+			iconNonessentialLoad4,
+			iconNonessentialLoad5,
+			iconNonessentialLoad6,
+			iconNonessentialLoad7,
+			iconNonessentialLoad8,
+			iconNonessentialLoad9,
+			iconNonessentialLoad10,
+			iconNonessentialLoad11,
+			iconNonessentialLoad12,
+			iconNonessentialLoad13,
+			iconNonessentialLoad14,
+			iconNonessentialLoad15,
 			inverterStateMsg,
 			auxType,
 			showDailyAux,
@@ -2731,6 +2907,18 @@ export class SunsynkPowerFlowCard extends LitElement {
 			stateNonessentialLoad1,
 			stateNonessentialLoad2,
 			stateNonessentialLoad3,
+			stateNonessentialLoad4,
+			stateNonessentialLoad5,
+			stateNonessentialLoad6,
+			stateNonessentialLoad7,
+			stateNonessentialLoad8,
+			stateNonessentialLoad9,
+			stateNonessentialLoad10,
+			stateNonessentialLoad11,
+			stateNonessentialLoad12,
+			stateNonessentialLoad13,
+			stateNonessentialLoad14,
+			stateNonessentialLoad15,
 			autoScaledInverterPower,
 			autoScaledGridPower,
 			auxDynamicColour,
@@ -2757,6 +2945,19 @@ export class SunsynkPowerFlowCard extends LitElement {
 			dynamicColourNonEssentialLoad1,
 			dynamicColourNonEssentialLoad2,
 			dynamicColourNonEssentialLoad3,
+			dynamicColourNonEssentialLoad4,
+			dynamicColourNonEssentialLoad5,
+			dynamicColourNonEssentialLoad6,
+			dynamicColourNonEssentialLoad7,
+			dynamicColourNonEssentialLoad8,
+			dynamicColourNonEssentialLoad9,
+			dynamicColourNonEssentialLoad10,
+			dynamicColourNonEssentialLoad11,
+			dynamicColourNonEssentialLoad12,
+			dynamicColourNonEssentialLoad13,
+			dynamicColourNonEssentialLoad14,
+			dynamicColourNonEssentialLoad15,
+			fullCardViewBoxHeight,
 			stateBatterySOH,
 			stateBattery2SOH,
 			customGridIcon,

@@ -63,6 +63,181 @@ const renderGridIcons = (data: DataDto, config: sunsynkPowerFlowCardConfig) => {
     `;
 };
 
+const NONESS_COL_X = [266, 303, 340] as const;
+
+const renderExtraNonessLoads = (
+	data: DataDto,
+	config: sunsynkPowerFlowCardConfig,
+) => {
+	const { showNonessential, nonessentialLoads, decimalPlaces } = data;
+	const { auto_scale } = config.grid;
+
+	type LoadEntry = {
+		n: number;
+		state: (typeof data)['stateNonessentialLoad4'];
+		colour: string;
+		icon: string;
+		name: string;
+		entityKey: keyof typeof config.entities;
+	};
+
+	const extraLoads: LoadEntry[] = [
+		{
+			n: 4,
+			state: data.stateNonessentialLoad4,
+			colour: data.dynamicColourNonEssentialLoad4,
+			icon: data.iconNonessentialLoad4,
+			name: config.grid.load4_name,
+			entityKey: 'non_essential_load4',
+		},
+		{
+			n: 5,
+			state: data.stateNonessentialLoad5,
+			colour: data.dynamicColourNonEssentialLoad5,
+			icon: data.iconNonessentialLoad5,
+			name: config.grid.load5_name,
+			entityKey: 'non_essential_load5',
+		},
+		{
+			n: 6,
+			state: data.stateNonessentialLoad6,
+			colour: data.dynamicColourNonEssentialLoad6,
+			icon: data.iconNonessentialLoad6,
+			name: config.grid.load6_name,
+			entityKey: 'non_essential_load6',
+		},
+		{
+			n: 7,
+			state: data.stateNonessentialLoad7,
+			colour: data.dynamicColourNonEssentialLoad7,
+			icon: data.iconNonessentialLoad7,
+			name: config.grid.load7_name,
+			entityKey: 'non_essential_load7',
+		},
+		{
+			n: 8,
+			state: data.stateNonessentialLoad8,
+			colour: data.dynamicColourNonEssentialLoad8,
+			icon: data.iconNonessentialLoad8,
+			name: config.grid.load8_name,
+			entityKey: 'non_essential_load8',
+		},
+		{
+			n: 9,
+			state: data.stateNonessentialLoad9,
+			colour: data.dynamicColourNonEssentialLoad9,
+			icon: data.iconNonessentialLoad9,
+			name: config.grid.load9_name,
+			entityKey: 'non_essential_load9',
+		},
+		{
+			n: 10,
+			state: data.stateNonessentialLoad10,
+			colour: data.dynamicColourNonEssentialLoad10,
+			icon: data.iconNonessentialLoad10,
+			name: config.grid.load10_name,
+			entityKey: 'non_essential_load10',
+		},
+		{
+			n: 11,
+			state: data.stateNonessentialLoad11,
+			colour: data.dynamicColourNonEssentialLoad11,
+			icon: data.iconNonessentialLoad11,
+			name: config.grid.load11_name,
+			entityKey: 'non_essential_load11',
+		},
+		{
+			n: 12,
+			state: data.stateNonessentialLoad12,
+			colour: data.dynamicColourNonEssentialLoad12,
+			icon: data.iconNonessentialLoad12,
+			name: config.grid.load12_name,
+			entityKey: 'non_essential_load12',
+		},
+		{
+			n: 13,
+			state: data.stateNonessentialLoad13,
+			colour: data.dynamicColourNonEssentialLoad13,
+			icon: data.iconNonessentialLoad13,
+			name: config.grid.load13_name,
+			entityKey: 'non_essential_load13',
+		},
+		{
+			n: 14,
+			state: data.stateNonessentialLoad14,
+			colour: data.dynamicColourNonEssentialLoad14,
+			icon: data.iconNonessentialLoad14,
+			name: config.grid.load14_name,
+			entityKey: 'non_essential_load14',
+		},
+		{
+			n: 15,
+			state: data.stateNonessentialLoad15,
+			colour: data.dynamicColourNonEssentialLoad15,
+			icon: data.iconNonessentialLoad15,
+			name: config.grid.load15_name,
+			entityKey: 'non_essential_load15',
+		},
+	];
+
+	return extraLoads.map((load, i) => {
+		const hidden = !showNonessential || nonessentialLoads < load.n;
+		const row = Math.floor(i / 3);
+		const col = i % 3;
+		const yBase = 310 + (row + 1) * 65;
+		const xCol = NONESS_COL_X[col];
+		const xCenter = xCol + 17.5;
+		const entityValue = config.entities[load.entityKey] as string;
+
+		return svg`
+			<rect
+				x="${xCol}"
+				y="${yBase}"
+				width="35"
+				height="20"
+				rx="4.5"
+				ry="4.5"
+				fill="none"
+				stroke="${load.colour}"
+				pointer-events="all"
+				display="${hidden ? 'none' : ''}"
+			/>
+			${createTextWithPopup(
+				`noness${load.n}_value`,
+				xCenter,
+				yBase + 11,
+				hidden || !load.state.isValid(),
+				'st3',
+				load.colour,
+				load.state.toPowerString(auto_scale, decimalPlaces),
+				(e) => Utils.handlePopup(e, entityValue),
+				true,
+			)}
+			${renderText(
+				`noness${load.n}_name`,
+				xCenter,
+				yBase + 28,
+				hidden,
+				'st3 st8',
+				load.colour,
+				load.name,
+				true,
+			)}
+			<g display="${hidden ? 'none' : ''}">
+				${renderIcon(
+					undefined,
+					load.icon,
+					`nonessload${load.n}-icon`,
+					xCol + 3,
+					yBase + 31,
+					30,
+					30,
+				)}
+			</g>
+		`;
+	});
+};
+
 export const renderGridElements = (
 	data: DataDto,
 	config: sunsynkPowerFlowCardConfig,
@@ -100,7 +275,7 @@ export const renderGridElements = (
 					height="20"
 					rx="4.5"
 					ry="4.5"
-					display="${nonessentialLoads === 3 &&
+					display="${nonessentialLoads >= 3 &&
 					(config.battery.hide_soc || config.wide)
 						? ''
 						: 'none'}"
@@ -132,7 +307,7 @@ export const renderGridElements = (
 						341,
 						30,
 						30,
-						(config.battery.hide_soc || config.wide) && nonessentialLoads === 3,
+						(config.battery.hide_soc || config.wide) && nonessentialLoads >= 3,
 					)}
 				</g>
 				${createTextWithPopup(
@@ -153,7 +328,7 @@ export const renderGridElements = (
 					300,
 					305,
 					config.entities?.non_essential_load3_extra &&
-						nonessentialLoads === 3 &&
+						nonessentialLoads >= 3 &&
 						data.stateNonEssentialLoad3Extra.isValid() &&
 						config.show_grid &&
 						config.wide &&
@@ -225,7 +400,7 @@ export const renderGridElements = (
 				height="20"
 				rx="4.5"
 				ry="4.5"
-				display="${[2, 3].includes(nonessentialLoads) ? '' : 'none'}"
+				display="${nonessentialLoads >= 2 ? '' : 'none'}"
 				fill="none"
 				stroke="${data.dynamicColourNonEssentialLoad1}"
 				pointer-events="all"
@@ -239,7 +414,7 @@ export const renderGridElements = (
 				height="20"
 				rx="4.5"
 				ry="4.5"
-				display="${[2, 3].includes(nonessentialLoads) ? '' : 'none'}"
+				display="${nonessentialLoads >= 2 ? '' : 'none'}"
 				fill="none"
 				stroke="${data.dynamicColourNonEssentialLoad2}"
 				pointer-events="all"
@@ -249,7 +424,7 @@ export const renderGridElements = (
 				'noness1',
 				340,
 				338,
-				!showNonessential || [0, 2, 3].includes(nonessentialLoads),
+				!showNonessential || nonessentialLoads !== 1,
 				'st3 st8',
 				data.dynamicColourNonEssentialLoad1,
 				config.grid.load1_name,
@@ -554,11 +729,7 @@ export const renderGridElements = (
 					),
 			)}
 
-			<g
-				display="${!showNonessential || [1, 2, 3].includes(nonessentialLoads)
-					? 'none'
-					: ''}"
-			>
+			<g display="${!showNonessential || nonessentialLoads >= 1 ? 'none' : ''}">
 				${renderIcon(
 					undefined,
 					data.nonessentialIcon,
@@ -596,9 +767,7 @@ export const renderGridElements = (
 				)}
 			</g>
 			<g
-				display="${!showNonessential || [0, 2, 3].includes(nonessentialLoads)
-					? 'none'
-					: ''}"
+				display="${!showNonessential || nonessentialLoads !== 1 ? 'none' : ''}"
 			>
 				${renderIcon(
 					undefined,
@@ -986,7 +1155,7 @@ export const renderGridElements = (
 				340,
 				321,
 				!showNonessential ||
-					[0, 2, 3].includes(nonessentialLoads) ||
+					nonessentialLoads !== 1 ||
 					!data.stateNonessentialLoad1.isValid(),
 				'st3',
 				data.dynamicColourNonEssentialLoad1,
@@ -1025,7 +1194,7 @@ export const renderGridElements = (
 				335,
 				305,
 				config.entities?.non_essential_load1_extra &&
-					[1, 2, 3].includes(nonessentialLoads) &&
+					nonessentialLoads >= 1 &&
 					data.stateNonEssentialLoad1Extra.isValid() &&
 					config.show_grid &&
 					showNonessential,
@@ -1042,7 +1211,7 @@ export const renderGridElements = (
 				342,
 				305,
 				config.entities?.non_essential_load2_extra &&
-					[2, 3].includes(nonessentialLoads) &&
+					nonessentialLoads >= 2 &&
 					data.stateNonEssentialLoad2Extra.isValid() &&
 					config.show_grid &&
 					showNonessential,
@@ -1054,6 +1223,8 @@ export const renderGridElements = (
 				)} ${data.stateNonEssentialLoad2Extra?.getUOM()}`,
 				(e) => Utils.handlePopup(e, config.entities.non_essential_load2_extra),
 			)}
+			<!-- Extra Non-Essential Loads (4-15) -->
+			${renderExtraNonessLoads(data, config)}
 		</svg>
 	`;
 };

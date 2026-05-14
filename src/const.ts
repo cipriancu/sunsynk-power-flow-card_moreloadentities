@@ -3,7 +3,9 @@ import { version } from '../package.json';
 export const CARD_VERSION = version;
 
 export const validLoadValues = [0, 1, 2, 3, 4, 5, 6];
-export const validnonLoadValues = [0, 1, 2, 3];
+export const validnonLoadValues = [
+	0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,
+];
 export const valid3phase = [true, false];
 export const validaux = [true, false];
 export const validauxLoads = [0, 1, 2];

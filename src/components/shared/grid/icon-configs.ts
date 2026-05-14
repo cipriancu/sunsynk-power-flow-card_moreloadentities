@@ -25,8 +25,7 @@ export const getNonEssentialIconConfigs = (data: DataDto): LoadIconConfig[] => [
 		y: 305.5,
 		width: 70,
 		height: 70,
-		displayCondition:
-			!data.showNonessential || [1, 2, 3].includes(data.nonessentialLoads),
+		displayCondition: !data.showNonessential || data.nonessentialLoads >= 1,
 		opacityCondition: data.nonessentialIcon === 'default',
 		iconType: 'nonEss',
 		prefix: 'noness',
@@ -39,8 +38,7 @@ export const getNonEssentialIconConfigs = (data: DataDto): LoadIconConfig[] => [
 		y: 305.5,
 		width: 70,
 		height: 70,
-		displayCondition:
-			!data.showNonessential || [1, 2, 3].includes(data.nonessentialLoads),
+		displayCondition: !data.showNonessential || data.nonessentialLoads >= 1,
 		opacityCondition: data.nonessentialIcon === 'oven',
 		iconType: 'oven',
 		prefix: 'noness',
@@ -53,8 +51,7 @@ export const getNonEssentialIconConfigs = (data: DataDto): LoadIconConfig[] => [
 		y: 305.5,
 		width: 70,
 		height: 70,
-		displayCondition:
-			!data.showNonessential || [1, 2, 3].includes(data.nonessentialLoads),
+		displayCondition: !data.showNonessential || data.nonessentialLoads >= 1,
 		opacityCondition: data.nonessentialIcon === 'boiler',
 		iconType: 'boiler',
 		prefix: 'noness',
@@ -67,8 +64,7 @@ export const getNonEssentialIconConfigs = (data: DataDto): LoadIconConfig[] => [
 		y: 305.5,
 		width: 70,
 		height: 70,
-		displayCondition:
-			!data.showNonessential || [1, 2, 3].includes(data.nonessentialLoads),
+		displayCondition: !data.showNonessential || data.nonessentialLoads >= 1,
 		opacityCondition: data.nonessentialIcon === 'pump',
 		iconType: 'pump',
 		prefix: 'noness',
@@ -81,8 +77,7 @@ export const getNonEssentialIconConfigs = (data: DataDto): LoadIconConfig[] => [
 		y: 312,
 		width: 55,
 		height: 55,
-		displayCondition:
-			!data.showNonessential || [1, 2, 3].includes(data.nonessentialLoads),
+		displayCondition: !data.showNonessential || data.nonessentialLoads >= 1,
 		opacityCondition: data.nonessentialIcon === 'aircon',
 		iconType: 'aircon',
 		prefix: 'noness',
@@ -239,15 +234,14 @@ export const getNonEssentialIconConfigs = (data: DataDto): LoadIconConfig[] => [
 		dynamicColor: data.dynamicColourNonEssentialLoad2,
 		viewBoxSize: 24,
 	},
-	// Additional Non-Essential Load Icons
+	// Additional Non-Essential Load Icons (single-load mode only)
 	{
 		id: 'noness1_default',
 		x: 324.5,
 		y: 341,
 		width: 32,
 		height: 32,
-		displayCondition:
-			!data.showNonessential || [0, 2, 3].includes(data.nonessentialLoads),
+		displayCondition: !data.showNonessential || data.nonessentialLoads !== 1,
 		opacityCondition: data.iconNonessentialLoad1 === 'default',
 		iconType: 'nonEss',
 		prefix: 'noness1',
@@ -260,8 +254,7 @@ export const getNonEssentialIconConfigs = (data: DataDto): LoadIconConfig[] => [
 		y: 341,
 		width: 32,
 		height: 32,
-		displayCondition:
-			!data.showNonessential || [0, 2, 3].includes(data.nonessentialLoads),
+		displayCondition: !data.showNonessential || data.nonessentialLoads !== 1,
 		opacityCondition: data.iconNonessentialLoad1 === 'boiler',
 		iconType: 'boiler',
 		prefix: 'noness1',
@@ -274,8 +267,7 @@ export const getNonEssentialIconConfigs = (data: DataDto): LoadIconConfig[] => [
 		y: 341,
 		width: 32,
 		height: 32,
-		displayCondition:
-			!data.showNonessential || [0, 2, 3].includes(data.nonessentialLoads),
+		displayCondition: !data.showNonessential || data.nonessentialLoads !== 1,
 		opacityCondition: data.iconNonessentialLoad1 === 'pump',
 		iconType: 'pump',
 		prefix: 'noness1',
@@ -288,8 +280,7 @@ export const getNonEssentialIconConfigs = (data: DataDto): LoadIconConfig[] => [
 		y: 341,
 		width: 32,
 		height: 32,
-		displayCondition:
-			!data.showNonessential || [0, 2, 3].includes(data.nonessentialLoads),
+		displayCondition: !data.showNonessential || data.nonessentialLoads !== 1,
 		opacityCondition: data.iconNonessentialLoad1 === 'oven',
 		iconType: 'oven',
 		prefix: 'noness1',
@@ -302,8 +293,7 @@ export const getNonEssentialIconConfigs = (data: DataDto): LoadIconConfig[] => [
 		y: 345,
 		width: 25,
 		height: 25,
-		displayCondition:
-			!data.showNonessential || [0, 2, 3].includes(data.nonessentialLoads),
+		displayCondition: !data.showNonessential || data.nonessentialLoads !== 1,
 		opacityCondition: data.iconNonessentialLoad1 === 'aircon',
 		iconType: 'aircon',
 		prefix: 'noness1',
